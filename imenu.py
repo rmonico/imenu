@@ -2,6 +2,7 @@
 # coding:utf-8
 
 import console
+import os
 
 
 class Menu(object):
@@ -47,10 +48,19 @@ class Menu(object):
 
 class MenuItem(object):
 
-    def __init__(self, shortcut, label, lines_before=0):
-        self._lines_before = lines_before
+    def __init__(self, shortcut, label, action=None, lines_before=0):
         self._shortcut = shortcut
         self._label = label
+        self._action = None
+        self._lines_before = lines_before
+
+    def run(self):
+        if self._action and hasattr(self._action, '__call__'):
+            result = self._action()
+
+            return result if result else 'ok'
+        else:
+            return 'ok'
 
 
 class OSCommandMenuItem(MenuItem):
