@@ -38,7 +38,7 @@ class Menu(object):
 
     def _draw_menu(self):
         if self.header_builder:
-            self.header_builder()
+            self.header_builder(**os.environ)
             print()
 
         if self.title:

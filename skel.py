@@ -2,8 +2,8 @@
 # coding: utf-8
 from imenu_builder import MenuBuilder
 
-def header_builder():
-    print("Header")
+def header_builder(**environment):
+    print("Current PATH: {PATH}".format(**environment))
 
 def main():
     builder = MenuBuilder()
