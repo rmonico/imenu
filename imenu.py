@@ -77,6 +77,8 @@ class OSCommandMenuItem(MenuItem):
 
         console.wait()
 
+        return 'ok'
+
 
 class InternalCommandMenuItem(MenuItem):
 
