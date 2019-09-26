@@ -39,15 +39,14 @@ class Menu(object):
     def _draw_menu(self):
         if self.header_builder:
             self.header_builder()
+            print()
 
         if self.title:
             print('*** {} ***'.format(self.title))
-
-        if self._itens and len(self._itens) > 0:
             print()
 
-            for item in self._itens:
-                self._print_item(item)
+        for item in self._itens:
+            self._print_item(item)
 
 
 class MenuItem(object):

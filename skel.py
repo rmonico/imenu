@@ -4,7 +4,6 @@ from imenu_builder import MenuBuilder
 
 def header_builder():
     print("Header")
-    print()
 
 def main():
     builder = MenuBuilder()
