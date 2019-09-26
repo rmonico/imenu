@@ -30,7 +30,7 @@ class Menu(object):
           key = console.getch()
 
           for item in self._itens:
-              if key == item.shortcut:
+              if key == item._shortcut:
                   item.run()
 
 
