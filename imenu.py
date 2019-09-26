@@ -11,6 +11,7 @@ class Menu(object):
         self.title = None
         self.header_builder = None
         self._itens = []
+        self._variables = os.environ.copy()
 
     def add_item(self, menu_item):
         self._itens.append(menu_item)
@@ -38,7 +39,7 @@ class Menu(object):
 
     def _draw_menu(self):
         if self.header_builder:
-            self.header_builder(**os.environ)
+            self.header_builder(**self._variables)
             print()
 
         if self.title:
@@ -76,7 +77,7 @@ class OSCommandMenuItem(MenuItem):
     def run(self):
         super().run()
 
-        os.system(self._command.format(**os.environ))
+        os.system(self._command.format(**self._variables))
 
         console.wait()
 
