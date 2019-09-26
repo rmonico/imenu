@@ -23,17 +23,15 @@ class Menu(object):
         result = None
 
         while result not in ('quit', 'back'):
-          console.clear_screen()
+            console.clear_screen()
 
-          self._draw_menu()
+            self._draw_menu()
 
-          key = console.getch()
+            key = console.getch()
 
-          for item in self._itens:
-              if key == item._shortcut:
-                  item.run()
-
-
+            for item in self._itens:
+                if key == item._shortcut:
+                    item.run()
 
     def _draw_menu(self):
         if self.title:
