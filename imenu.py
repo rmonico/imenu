@@ -73,3 +73,9 @@ class InternalCommandMenuItem(MenuItem):
 
     def __init__(self, shortcut, label, command):
         super().__init__(shortcut, label, lines_before=2)
+        self._command = command
+
+    def run(self):
+        super().run()
+
+        return self._command
