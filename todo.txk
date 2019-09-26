@@ -13,3 +13,4 @@
   - O comando executado em uma opção deve substituir variáveis, tanto de ambiente quanto definida internamente
   ; As variáveis internas devem poder ser definidas via yaml de configuração
   - A configuração do comando a ser executado deve incluir a pasta inicial
+  - Carregar o item de menu um arquivo .yaml
