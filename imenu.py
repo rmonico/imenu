@@ -31,7 +31,8 @@ class Menu(object):
 
             for item in self._itens:
                 if key == item._shortcut:
-                    item.run()
+                    result = item.run()
+                    break
 
     def _draw_menu(self):
         if self.title:
