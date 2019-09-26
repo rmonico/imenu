@@ -68,6 +68,15 @@ class OSCommandMenuItem(MenuItem):
     def __init__(self, shortcut, label, os_command=None):
         super().__init__(shortcut, label)
 
+        self._command = os_command
+
+    def run(self):
+        super().run()
+
+        os.system(self._command)
+
+        console.wait()
+
 
 class InternalCommandMenuItem(MenuItem):
 
