@@ -76,7 +76,7 @@ class OSCommandMenuItem(MenuItem):
     def run(self):
         super().run()
 
-        os.system(self._command)
+        os.system(self._command.format(**os.environ))
 
         console.wait()
 

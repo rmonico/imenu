@@ -14,6 +14,8 @@ def main():
 
     builder.item().shortcut('l').label('List directory').os_command('ls -la').create()
 
+    builder.item().shortcut('p').label('Show path').os_command('echo {PATH}').create()
+
     builder.add_quit_item()
 
     menu = builder.create()
