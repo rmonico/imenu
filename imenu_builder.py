@@ -10,6 +10,9 @@ class MenuBuilder(object):
         self._menu = Menu()
         return self
 
+    def header(self, header_builder):
+        self._menu.header_builder = header_builder
+
     def title(self, title):
         self._menu.title = title
         return self

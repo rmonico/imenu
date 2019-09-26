@@ -9,6 +9,7 @@ class Menu(object):
 
     def __init__(self):
         self.title = None
+        self.header_builder = None
         self._itens = []
 
     def add_item(self, menu_item):
@@ -36,6 +37,9 @@ class Menu(object):
                     break
 
     def _draw_menu(self):
+        if self.header_builder:
+            self.header_builder()
+
         if self.title:
             print('*** {} ***'.format(self.title))
 

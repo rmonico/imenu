@@ -2,11 +2,16 @@
 # coding: utf-8
 from imenu_builder import MenuBuilder
 
+def header_builder():
+    print("Header")
+    print()
 
 def main():
     builder = MenuBuilder()
 
     builder.title('Menu title')
+
+    builder.header(header_builder)
 
     builder.item().shortcut('l').label('List directory').os_command('ls -la').create()
 
