@@ -1,4 +1,4 @@
-from imenu import Menu, OSCommandMenuItem, InternalCommandMenuItem
+from imenu import Menu, OSCommandMenuItem, InternalCommandMenuItem, VariableSetterMenuItem
 
 
 class MenuBuilder(object):
