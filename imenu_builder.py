@@ -49,11 +49,20 @@ class MenuItemBuilder(object):
         self.os_command = os_command
         return self
 
-    def _create_os_command_menu_item(self):
-        return OSCommandMenuItem(self.shortcut, self.label, os_command=self.os_command)
+    def set_variable(self, variable):
+        self.variable = variable
+        return self
 
     def create(self):
         if self.os_command:
             self.menu_builder.add_item(self._create_os_command_menu_item())
-
+        elif self.variable:
+            self.menu_builder.add_item(
+                self._create_variable_setter_menu_item())
         return self.menu_builder
+
+    def _create_os_command_menu_item(self):
+        return OSCommandMenuItem(self.shortcut, self.label, os_command=self.os_command)
+
+    def _create_variable_setter_menu_item(self):
+        return VariableSetterMenuItem(self.shortcut, self.label, variable=self.variable)

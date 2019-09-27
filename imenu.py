@@ -94,3 +94,11 @@ class InternalCommandMenuItem(MenuItem):
         super().run(**environment)
 
         return self._command
+
+
+class VariableSetterMenuItem(MenuItem):
+
+    def __init__(self, shortcut, label, variable):
+        super().__init__(shortcut, label)
+
+        self.variable = variable

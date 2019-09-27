@@ -16,6 +16,8 @@ def main():
 
     builder.item().shortcut('p').label('Show path').os_command('echo {PATH}').create()
 
+    builder.item().shortcut('i').label('Set i variable').set_variable('i').create()
+
     builder.add_quit_item()
 
     menu = builder.create()
