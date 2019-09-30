@@ -16,12 +16,6 @@ class Menu(object):
     def add_item(self, menu_item):
         self._itens.append(menu_item)
 
-    def _print_item(self, item):
-        for i in range(0, item._lines_before):
-            print()
-
-        print('{}.  {}'.format(item._shortcut, item._label))
-
     def run(self):
         result = None
 
@@ -50,6 +44,12 @@ class Menu(object):
 
         for item in self._itens:
             self._print_item(item)
+
+    def _print_item(self, item):
+        for i in range(0, item._lines_before):
+            print()
+
+        print('{}.  {}'.format(item._shortcut, item._label))
 
 
 class MenuItem(object):
