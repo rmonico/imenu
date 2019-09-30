@@ -1,9 +1,10 @@
-from imenu import Menu, OSCommandMenuItem, InternalCommandMenuItem, VariableSetterMenuItem
+from imenu import Menu, OSCommandMenuItem, InternalCommandMenuItem, VariableSetterMenuItem, SubMenuItem
 
 
 class MenuBuilder(object):
 
-    def __init__(self):
+    def __init__(self, parent_builder=None):
+        self._parent_builder = parent_builder
         self.reset()
 
     def reset(self):
@@ -29,7 +30,12 @@ class MenuBuilder(object):
         return self
 
     def create(self):
-        return self._menu
+        if self._parent_builder:
+            self._parent_builder._add_submenu(self._menu)
+
+            return self._parent_builder
+        else:
+            return self._menu
 
 
 class MenuItemBuilder(object):
@@ -38,6 +44,7 @@ class MenuItemBuilder(object):
         self._menu_builder = menu_builder
         self._os_command = None
         self._variable = None
+        self._sub_menu = None
 
     def shortcut(self, shortcut):
         self._shortcut = shortcut
@@ -55,12 +62,23 @@ class MenuItemBuilder(object):
         self._variable = variable
         return self
 
+    def sub_menu(self):
+        return MenuBuilder(self)
+
+    def _add_submenu(self, sub_menu):
+        self._sub_menu = sub_menu
+
+        self.create()
+
     def create(self):
         if self._os_command:
             self._menu_builder.add_item(self._create_os_command_menu_item())
         elif self._variable:
             self._menu_builder.add_item(
                 self._create_variable_setter_menu_item())
+        elif self._sub_menu:
+            self._menu_builder.add_item(self._create_sub_menu_item())
+
         return self._menu_builder
 
     def _create_os_command_menu_item(self):
@@ -68,3 +86,6 @@ class MenuItemBuilder(object):
 
     def _create_variable_setter_menu_item(self):
         return VariableSetterMenuItem(self._shortcut, self._label, variable=self._variable)
+
+    def _create_sub_menu_item(self):
+        return SubMenuItem(self._shortcut, self._label, submenu=self._sub_menu)

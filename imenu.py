@@ -37,6 +37,8 @@ class Menu(object):
                     result = item.run(self._variables)
                     break
 
+        return result
+
     def _draw_menu(self):
         if self.header_builder:
             self.header_builder(self._variables)
@@ -118,3 +120,21 @@ class VariableSetterMenuItem(MenuItem):
             environment[self.variable] = value
 
         return 'ok'
+
+
+class SubMenuItem(MenuItem):
+
+    def __init__(self, shortcut, label, submenu):
+        super().__init__(shortcut, label)
+
+        self.submenu = submenu
+
+    def run(self, environment):
+        super().run(environment)
+
+        command = self.submenu.run()
+
+        if command == 'back':
+            return 'ok'
+        else:
+            return command
