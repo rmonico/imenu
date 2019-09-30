@@ -25,7 +25,7 @@ def main():
     submenu.item().shortcut('1').label('First item').os_command('echo First menu item').create()
     submenu.item().shortcut('2').label('Second item').os_command('echo Second menu item').create()
 
-    submenu.add_back_item()
+    submenu.item().back()
     submenu.add_quit_item()
 
     submenu.create()

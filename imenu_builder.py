@@ -70,6 +70,12 @@ class MenuItemBuilder(object):
 
         self.create()
 
+    def back(self):
+        back_menu_item = InternalCommandMenuItem('x', 'Back', 'back')
+        self._menu_builder.add_item(back_menu_item)
+
+        return self._menu_builder
+
     def create(self):
         if self._os_command:
             self._menu_builder.add_item(self._create_os_command_menu_item())
