@@ -18,9 +18,7 @@ def main():
 
     builder.item('i', 'Set i variable').set_variable('i').create()
 
-    submenu = builder.item('s', 'submenu').sub_menu()
-
-    submenu.title('Sub menu')
+    submenu = builder.item('s', 'A submenu').sub_menu()
 
     submenu.item('1', 'First item').os_command('echo First menu item').create()
     submenu.item('2', 'Second item').os_command('echo Second menu item').create()

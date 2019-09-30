@@ -64,7 +64,10 @@ class MenuItemBuilder(object):
         return self
 
     def sub_menu(self):
-        return MenuBuilder(self)
+        submenu_builder = MenuBuilder(self)
+        submenu_builder.title(self._label)
+
+        return submenu_builder
 
     def _add_submenu(self, sub_menu):
         self._sub_menu = sub_menu
