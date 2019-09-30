@@ -1,7 +1,5 @@
 :: TODO
 
-- Não está imprimindo o item de submenu na tela, não está incluindo na lista de itens do menu
-
 - Milestone 2
   - Submenus
   - Receber um arquivo de configuração via linha de comando

@@ -18,8 +18,13 @@ class MenuBuilder(object):
         self._menu.title = title
         return self
 
-    def item(self):
-        return MenuItemBuilder(self)
+    def item(self, shortcut=None, label=None):
+        item_builder = MenuItemBuilder(self)
+
+        item_builder.shortcut(shortcut)
+        item_builder.label(label)
+
+        return item_builder
 
     def add_item(self, menu_item):
         self._menu.add_item(menu_item)
@@ -67,19 +72,21 @@ class MenuItemBuilder(object):
         self.create()
 
     def defaults(self):
-        if self._menu_builder and self._menu_builder._parent_builder:
-            back()
+        is_sub_menu = self._menu_builder and self._menu_builder._parent_builder
 
-        return quit()
+        if is_sub_menu:
+            self.back(lines_before=1)
 
-    def back(self):
-        back_menu_item = InternalCommandMenuItem('x', 'Back', 'back')
+        return self.quit(lines_before=0 if is_sub_menu else 1)
+
+    def back(self, lines_before=0):
+        back_menu_item = InternalCommandMenuItem('x', 'Back', 'back', lines_before)
         self._menu_builder.add_item(back_menu_item)
 
         return self._menu_builder
 
-    def quit(self):
-        quit_menu_item = InternalCommandMenuItem('q', 'Quit', 'quit')
+    def quit(self, lines_before=0):
+        quit_menu_item = InternalCommandMenuItem('q', 'Quit', 'quit', lines_before)
         self._menu_builder.add_item(quit_menu_item)
 
         return self._menu_builder
