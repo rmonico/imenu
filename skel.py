@@ -18,6 +18,18 @@ def main():
 
     builder.item().shortcut('i').label('Set i variable').set_variable('i').create()
 
+    submenu = builder.item().shortcut('s').label('submenu').sub_menu()
+
+    submenu.title('Sub menu')
+
+    submenu.item().shortcut('1').label('First item').os_command('echo First menu item').create()
+    submenu.item().shortcut('2').label('Second item').os_command('echo Second menu item').create()
+
+    submenu.add_back_item()
+    submenu.add_quit_item()
+
+    submenu.create()
+
     builder.add_quit_item()
 
     menu = builder.create()
