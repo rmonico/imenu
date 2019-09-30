@@ -25,10 +25,6 @@ class MenuBuilder(object):
         self._menu.add_item(menu_item)
         return self
 
-    def add_quit_item(self):
-        self.add_item(InternalCommandMenuItem('q', 'Quit', 'quit'))
-        return self
-
     def create(self):
         if self._parent_builder:
             self._parent_builder._add_submenu(self._menu)
@@ -73,6 +69,12 @@ class MenuItemBuilder(object):
     def back(self):
         back_menu_item = InternalCommandMenuItem('x', 'Back', 'back')
         self._menu_builder.add_item(back_menu_item)
+
+        return self._menu_builder
+
+    def quit(self):
+        quit_menu_item = InternalCommandMenuItem('q', 'Quit', 'quit')
+        self._menu_builder.add_item(quit_menu_item)
 
         return self._menu_builder
 

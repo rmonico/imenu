@@ -26,11 +26,11 @@ def main():
     submenu.item().shortcut('2').label('Second item').os_command('echo Second menu item').create()
 
     submenu.item().back()
-    submenu.add_quit_item()
+    submenu.item().quit()
 
     submenu.create()
 
-    builder.add_quit_item()
+    builder.item().quit()
 
     menu = builder.create()
 
