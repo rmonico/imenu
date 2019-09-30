@@ -1,10 +1,10 @@
 :: TODO
 
 - Milestone 1
-  - Imprimir um menu na tela
-  - Cada opção deve ter uma tecla de atalho associada
-  - Deve ter um cabeçalho com status
-  - Uma opção pode rodar um comando do SO
+  - Imprimir um menu na tela #ok
+  - Cada opção deve ter uma tecla de atalho associada #ok
+  - Deve ter um cabeçalho com status #ok
+  - Uma opção pode rodar um comando do SO #ok
 
 - Backlog
   - Deve ser possível mudar o valor de uma variável interna através de um item de menu
