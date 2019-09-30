@@ -102,3 +102,19 @@ class VariableSetterMenuItem(MenuItem):
         super().__init__(shortcut, label)
 
         self.variable = variable
+
+    def run(self, environment):
+        super().run(environment)
+
+        print()
+        print('Possible commands ::cancel ::remove')
+        print('Current {}\'s value: "{}"'.format(self.variable, environment.get(self.variable, '<not defined>')))
+        value = input('{} = '.format(self.variable))
+
+        if value == '::remove':
+            if self.variable in environment.keys():
+                environment.pop(self.variable)
+        elif value != '::cancel':
+            environment[self.variable] = value
+
+        return 'ok'
