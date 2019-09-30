@@ -1,13 +1,17 @@
 :: TODO
 
+- Milestone 2
+  - Submenus
+  - Receber um arquivo de configuração via linha de comando
+
 - Milestone 1
+  - Deve ser possível mudar o valor de uma variável interna através de um item de menu #ok
   - Imprimir um menu na tela #ok
   - Cada opção deve ter uma tecla de atalho associada #ok
   - Deve ter um cabeçalho com status #ok
   - Uma opção pode rodar um comando do SO #ok
 
 - Backlog
-  - Deve ser possível mudar o valor de uma variável interna através de um item de menu
   - Mostrar uma linha de status na parte de baixo da tela
   - O comando executado por uma opção deve receber variáveis internas
   - O comando executado em uma opção deve substituir variáveis, tanto de ambiente quanto definida internamente
