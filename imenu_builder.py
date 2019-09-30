@@ -66,6 +66,12 @@ class MenuItemBuilder(object):
 
         self.create()
 
+    def defaults(self):
+        if self._menu_builder and self._menu_builder._parent_builder:
+            back()
+
+        return quit()
+
     def back(self):
         back_menu_item = InternalCommandMenuItem('x', 'Back', 'back')
         self._menu_builder.add_item(back_menu_item)
