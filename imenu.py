@@ -34,12 +34,12 @@ class Menu(object):
 
             for item in self._itens:
                 if key == item._shortcut:
-                    result = item.run(**self._variables)
+                    result = item.run(self._variables)
                     break
 
     def _draw_menu(self):
         if self.header_builder:
-            self.header_builder(**self._variables)
+            self.header_builder(self._variables)
             print()
 
         if self.title:
@@ -58,9 +58,9 @@ class MenuItem(object):
         self._action = None
         self._lines_before = lines_before
 
-    def run(self, **environment):
+    def run(self, environment):
         if self._action and hasattr(self._action, '__call__'):
-            result = self._action(**environment)
+            result = self._action(environment)
 
             return result if result else 'ok'
         else:
@@ -74,8 +74,8 @@ class OSCommandMenuItem(MenuItem):
 
         self._command = os_command
 
-    def run(self, **environment):
-        super().run(**environment)
+    def run(self, environment):
+        super().run(environment)
 
         os.system(self._command.format(**environment))
 
@@ -90,8 +90,8 @@ class InternalCommandMenuItem(MenuItem):
         super().__init__(shortcut, label, lines_before=2)
         self._command = command
 
-    def run(self, **environment):
-        super().run(**environment)
+    def run(self, environment):
+        super().run(environment)
 
         return self._command
 
