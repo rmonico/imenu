@@ -7,11 +7,11 @@ import os
 
 class Menu(object):
 
-    def __init__(self):
+    def __init__(self, environment=os.environ.copy()):
         self.title = None
         self.header_builder = None
         self._itens = []
-        self._variables = os.environ.copy()
+        self._environment = environment
 
     def add_item(self, menu_item):
         self._itens.append(menu_item)
@@ -28,14 +28,14 @@ class Menu(object):
 
             for item in self._itens:
                 if key == item._shortcut:
-                    result = item.run(self._variables)
+                    result = item.run(self._environment)
                     break
 
         return result
 
     def _draw_menu(self):
         if self.header_builder:
-            self.header_builder(self._variables)
+            self.header_builder(self._environment)
             print()
 
         if self.title:

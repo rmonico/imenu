@@ -72,6 +72,7 @@ class MenuItemBuilder(object):
     def _add_submenu(self, sub_menu):
         self._sub_menu = sub_menu
 
+        # FIXME Should use environment of parent menu
         self.create()
 
     def defaults(self):
