@@ -2,12 +2,11 @@
 # coding:utf-8
 
 import console
-import os
 
 
 class Menu(object):
 
-    def __init__(self, environment=os.environ.copy()):
+    def __init__(self, environment={}):
         self.title = None
         self.header_builder = None
         self._itens = []
@@ -110,7 +109,8 @@ class VariableSetterMenuItem(MenuItem):
 
         print()
         print('Possible commands ::cancel ::remove')
-        print('Current {}\'s value: "{}"'.format(self.variable, environment.get(self.variable, '<not defined>')))
+        print('Current {}\'s value: "{}"'.format(self.variable,
+                                                 environment.get(self.variable, '<not defined>')))
         value = input('{} = '.format(self.variable))
 
         if value == '::remove':
