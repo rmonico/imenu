@@ -1,8 +1,10 @@
 :: TODO
 
-- Milestone 2
-  - Submenus
+- Milestone 3
   - Receber um arquivo de configuração via linha de comando
+
+- Milestone 2
+  ok Submenus
 
 - Milestone 1
   - Deve ser possível mudar o valor de uma variável interna através de um item de menu #ok
