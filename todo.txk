@@ -1,6 +1,6 @@
 :: TODO
 
-- O comando de stop do docker não está funcionando, olhar no docker-helper o que faz exatamente
+- O menu item de switch não está funcionando, acho que é problema no menu item de action
 
 - Milestone 3
   - Receber um arquivo de configuração via linha de comando
