@@ -118,17 +118,23 @@ class VariableSetterMenuItem(MenuItem):
     def run(self, environment):
         super().run(environment)
 
+        return set_variable(environment, self.variable)
+
+    @staticmethod
+    def set_variable(environment, variable):
         print()
         print('Possible commands ::cancel ::remove')
-        print('Current {}\'s value: "{}"'.format(self.variable,
-                                                 environment.get(self.variable, '<not defined>')))
+        print('Current {}\'s value: "{}"'.format(
+            variable, environment.get(variable, '<not defined>')))
         value = input('{} = '.format(self.variable))
 
         if value == '::remove':
-            if self.variable in environment.keys():
-                environment.pop(self.variable)
+            if variable in environment.keys():
+                environment.pop(variable)
         elif value != '::cancel':
-            environment[self.variable] = value
+            environment[variable] = value
+        else:
+            return 'cancelled'
 
         return 'ok'
 
