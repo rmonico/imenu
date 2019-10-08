@@ -97,13 +97,15 @@ class MenuItemBuilder(object):
         return self.quit(lines_before=0 if is_sub_menu else 1)
 
     def back(self, lines_before=0):
-        back_menu_item = InternalCommandMenuItem('x', 'Back', 'back', lines_before)
+        back_menu_item = InternalCommandMenuItem(
+            'x', 'Back', 'back', lines_before)
         self._menu_builder.add_item(back_menu_item)
 
         return self._menu_builder
 
     def quit(self, lines_before=0):
-        quit_menu_item = InternalCommandMenuItem('q', 'Quit', 'quit', lines_before)
+        quit_menu_item = InternalCommandMenuItem(
+            'q', 'Quit', 'quit', lines_before)
         self._menu_builder.add_item(quit_menu_item)
 
         return self._menu_builder
