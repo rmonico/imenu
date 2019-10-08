@@ -44,6 +44,7 @@ class MenuItemBuilder(object):
     def __init__(self, menu_builder=None):
         self._menu_builder = menu_builder
         self._os_command = None
+        self._active_folder = None
         self._variable = None
         self._sub_menu = None
 
@@ -57,6 +58,10 @@ class MenuItemBuilder(object):
 
     def os_command(self, os_command):
         self._os_command = os_command
+        return self
+
+    def active_folder(self, active_folder):
+        self._active_folder = active_folder
         return self
 
     def set_variable(self, variable):
@@ -107,7 +112,7 @@ class MenuItemBuilder(object):
         return self._menu_builder
 
     def _create_os_command_menu_item(self):
-        return OSCommandMenuItem(self._shortcut, self._label, os_command=self._os_command)
+        return OSCommandMenuItem(self._shortcut, self._label, os_command=self._os_command, active_folder=self._active_folder)
 
     def _create_variable_setter_menu_item(self):
         return VariableSetterMenuItem(self._shortcut, self._label, variable=self._variable)

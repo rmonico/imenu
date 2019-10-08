@@ -2,6 +2,7 @@
 # coding:utf-8
 
 import console
+import os
 
 
 class Menu(object):
@@ -70,15 +71,25 @@ class MenuItem(object):
 
 class OSCommandMenuItem(MenuItem):
 
-    def __init__(self, shortcut, label, os_command=None):
+    def __init__(self, shortcut, label, os_command=None, active_folder=None):
         super().__init__(shortcut, label)
 
         self._command = os_command
+        self._active_folder = active_folder
 
     def run(self, environment):
         super().run(environment)
 
-        os.system(self._command.format(**environment))
+        if self._active_folder:
+            old_directory = os.path.realpath('.')
+            os.chdir(self._active_folder.format(**environment))
+
+        command = self._command.format(**environment)
+        # print(command)
+        os.system(command)
+
+        if self._active_folder:
+            os.chdir(old_directory)
 
         console.wait()
 
