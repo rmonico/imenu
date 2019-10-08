@@ -1,10 +1,12 @@
 :: TODO
 
+- O comando de stop do docker não está funcionando, olhar no docker-helper o que faz exatamente
+
 - Milestone 3
   - Receber um arquivo de configuração via linha de comando
 
 - Milestone 2
-  ok Submenus
+  - Submenus #ok
 
 - Milestone 1
   - Deve ser possível mudar o valor de uma variável interna através de um item de menu #ok
