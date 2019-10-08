@@ -11,8 +11,13 @@ class MenuBuilder(object):
         self._menu = Menu()
         return self
 
+    def environment(self, environment):
+        self._menu._environment = environment
+        return self
+
     def header(self, header_builder):
         self._menu.header_builder = header_builder
+        return self
 
     def title(self, title):
         self._menu.title = title
@@ -70,7 +75,10 @@ class MenuItemBuilder(object):
 
     def sub_menu(self):
         submenu_builder = MenuBuilder(self)
-        submenu_builder.title(self._label)
+
+        if self._menu_builder:
+            submenu_builder.environment(
+                self._menu_builder._menu._environment).title(self._label)
 
         return submenu_builder
 
