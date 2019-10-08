@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 # coding: utf-8
 from imenu_builder import MenuBuilder
+import os
 
 def header_builder(environment):
     print("Current PATH: {PATH}".format(**environment))
@@ -8,9 +9,7 @@ def header_builder(environment):
 def main():
     builder = MenuBuilder()
 
-    builder.title('Menu title')
-
-    builder.header(header_builder)
+    builder.environment(os.environ.copy()).header(header_builder).title('Menu title')
 
     builder.item('l', 'List directory').os_command('ls -la').create()
 
