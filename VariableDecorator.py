@@ -30,23 +30,23 @@ class TestSomething(unittest.TestCase):
 
         self.assertEqual(generated_value, 'prefix - variable value')
 
-    @skip('Not implemented yet')
-    def test_should_expand with_suffix(self):
-        decorator = VariableDecorator({'variable': 'variable value'})
+    # @skip('Not implemented yet')
+    # def test_should_expand with_suffix(self):
+    #     decorator = VariableDecorator({'variable': 'variable value'})
 
-        generated_value = decorator.expand('?:variable:: - suffix?')
+    #     generated_value = decorator.expand('?:variable:: - suffix?')
 
-        self.assertEqual(generated_value, 'variable value - suffix')
+    #     self.assertEqual(generated_value, 'variable value - suffix')
 
-    @skip('Not implemented yet')
-    def test_should_expand with_expression(self):
-        decorator = VariableDecorator({'variable': 'variable value'})
+    # @skip('Not implemented yet')
+    # def test_should_expand with_expression(self):
+    #     decorator = VariableDecorator({'variable': 'variable value'})
 
-        generated_value = decorator.expand('?:variable if undefined,null,empty :not defined; if ')
+    #     generated_value = decorator.expand('?:variable if undefined,null,empty :not defined; if ')
 
-        generated_value = decorator.expand('?:variable ;? undefined :variable not defined; if null :variable is null; case empty :variable is empty;')
+    #     generated_value = decorator.expand('?:variable ;? undefined :variable not defined; if null :variable is null; case empty :variable is empty;')
 
-        self.assertEqual(generated_value, 'variable value - suffix')
+    #     self.assertEqual(generated_value, 'variable value - suffix')
 
 
 if __name__ == '__main__':
