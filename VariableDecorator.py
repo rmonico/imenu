@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 # coding: utf-8
 
-from unittest import TestCase, skip
+from unittest import TestCase, skip, main as unittest_main
 
 
-class TestSomething(unittest.TestCase):
+class TestSomething(TestCase):
 
     # ?:variable?
     # ?prefixo:variable?
@@ -23,7 +23,7 @@ class TestSomething(unittest.TestCase):
         self.assertEqual(generated_value, 'variable value')
 
     @skip('Not implemented yet')
-    def test_should_expand with_prefix(self):
+    def test_should_expand_variable_with_prefix(self):
         decorator = VariableDecorator({'variable': 'variable value'})
 
         generated_value = decorator.expand('?prefix - :variable?')
@@ -50,4 +50,4 @@ class TestSomething(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest_main()
