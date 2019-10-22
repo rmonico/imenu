@@ -4,6 +4,15 @@
 from unittest import TestCase, skip, main as unittest_main
 
 
+class VariableDecorator(object):
+
+    def __init__(self, variables):
+        pass
+
+    def expand(self, format):
+        return 'variable value'
+
+
 class TestSomething(TestCase):
 
     # ?:variable?
@@ -13,7 +22,7 @@ class TestSomething(TestCase):
     # ?variable??if null or empty::Variable not defined?
 
     # ?[prefixo:]variable[::sufixo][??expression::valor se true]?
-    
+
     # expression: if [nulo [or empty] | [ empty ] ]
     def test_should_expand_variable(self):
         decorator = VariableDecorator({'variable': 'variable value'})
