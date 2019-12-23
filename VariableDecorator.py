@@ -13,7 +13,7 @@ class VariableDecorator(object):
         return 'variable value'
 
 
-class TestSomething(TestCase):
+class TestVariableDecorator(TestCase):
 
     # ?:variable?
     # ?prefixo:variable?
